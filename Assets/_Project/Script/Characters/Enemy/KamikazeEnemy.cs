@@ -11,7 +11,6 @@ public class KamikazeEnemy : Enemy
         if (CheckPlayerInRange())
         {
             EnemyMovement(_player.transform.position - transform.position);
-            EnemyAttack();
         }
     }
     

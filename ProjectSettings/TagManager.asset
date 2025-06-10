@@ -4,27 +4,19 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
-  - Bullet
   - PickUp
+  - Enemie
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - 
   - Water
   - UI
-<<<<<<< Updated upstream
-  - Enemy
-  - Bullet
-  - PickUp
-  - 
-=======
   - Player
   - Enemy
   - Bullet
   - EnemyBullet
->>>>>>> Stashed changes
   - 
   - 
   - 
@@ -50,7 +42,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: CharacterOrObject
-    uniqueID: 3618271223
     locked: 0
