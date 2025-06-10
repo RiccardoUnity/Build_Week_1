@@ -26,13 +26,13 @@ public class Bullet : MonoBehaviour
     }
 
 
-    public void setorigin (Transform origin, Vector2 dirNorm)
+    public void ShootBullet (Transform origin, Vector2 force)
 
     {
 
         _origin = origin;
 
-        rigidbody2d.AddForce(dirNorm * speed, ForceMode2D.Impulse);
+        rigidbody2d.AddForce(force * speed, ForceMode2D.Impulse);
 
     }
     private void OnTriggerEnter2D(Collider2D other)

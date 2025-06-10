@@ -46,7 +46,7 @@ public class Weapon : MonoBehaviour
                 _lastShotTime = Time.time;
                 Bullet b = Instantiate(bulletPrefab, transform.position, transform.rotation);
                 Vector2 force = (enemy.transform.position - transform.position).normalized;
-                b.ShootBullet(force); // nome metodo bullet
+                b.ShootBullet(transform.parent, force); // nome metodo bullet
             }
         }
     }

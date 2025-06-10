@@ -26,7 +26,7 @@ public class KamikazeEnemy : Enemy
         if (collision.gameObject == _player.gameObject)
         {
             collision.gameObject.GetComponent<LifeController>().TakeDamage(Dmg); // Rimuove 10 punti vita al giocatore quando l'enemy lo colpisce
-            _lifeController.TakeDamage(_lifeController.MaxHp); // Rimuove tutti i punti vita all'enemy quando colpisce il giocatore
+            _lifeController.TakeDamage(_lifeController.Hp); // Rimuove tutti i punti vita all'enemy quando colpisce il giocatore
         }
     }
 

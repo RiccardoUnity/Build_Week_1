@@ -3,10 +3,9 @@ using UnityEngine.Rendering;
 
 public class LifeController : MonoBehaviour
 {
-    [SerializeField] public int Hp { get; private set; }
+    public int Hp { get; private set; }
 
     [SerializeField] private int _maxHp = 100;
-    public int MaxHp => _maxHp;
 
     private void Start()
     {
