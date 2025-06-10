@@ -12,6 +12,7 @@ public class EnemyInstantiate : MonoBehaviour
 
     [SerializeField] GameObject enemyPrefab;
     [SerializeField] List<GameObject> enemyList = new List<GameObject>();
+    PlayerController _playerController; // Riferimento al PlayerController per controllare la distanza dal giocatore
 
     void Start()
     {
@@ -69,12 +70,25 @@ public class EnemyInstantiate : MonoBehaviour
         foreach (GameObject precedentEnemy in enemyList)
         {
             float distance = Vector2.Distance(spawnPosition, precedentEnemy.transform.position);// Calcola la distanza tra la posizione di spawn e la posizione degli enemy già presenti
-            float playerDistance = Vector2.Distance(spawnPosition, FindAnyObjectByType<PlayerController>().transform.position); // Calcola la distanza tra la posizione di spawn e la posizione del giocatore
 
-            if (distance < minDis || playerDistance < minPlayerDis)//Confronta le distanze
-            {
-                return false;
+            if (_playerController != null)
+            { // Controlla se il PlayerController è presente nella scena
+
+                float playerDistance = Vector2.Distance(spawnPosition, FindAnyObjectByType<PlayerController>().transform.position); // Calcola la distanza tra la posizione di spawn e la posizione del giocatore
+                if (distance < minDis || playerDistance < minPlayerDis)//Confronta le distanze
+                {
+                    return false;
+                }
             }
+            else
+            {
+                if (distance < minDis) // Se non c'è il PlayerController, controlla solo la distanza tra gli enemy
+                {
+                    return false;
+                }
+            }
+
+
         }
         return true;
     }
