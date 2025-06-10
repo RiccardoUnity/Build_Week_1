@@ -19,12 +19,6 @@ public class ShooterKamikazeEnemy : KamikazeEnemy
 
     public override void EnemyAttack()
     {
-        //if (Time.time - _lastAttackTime >= _attackCooldown && CheckPlayerInRange())
-        //{
-        //    Vector3 direction = Vector2.up; //Spara in avanti.
-        //    Bullet bullet = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
-        //    bullet.Shoot(transform.position, direction); //Spara il proiettile nella direzione specificata
-        //    _lastAttackTime = Time.time;
-        //}
+
     }
 }
