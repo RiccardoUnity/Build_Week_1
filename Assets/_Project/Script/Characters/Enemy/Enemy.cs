@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public abstract class Enemy : MonoBehaviour
 {
@@ -22,7 +19,10 @@ public abstract class Enemy : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (CheckPlayerInRange()) { EnemyMovement(); }
+        if (CheckPlayerInRange())
+        {
+            EnemyMovement();
+        }
     }
 
 
