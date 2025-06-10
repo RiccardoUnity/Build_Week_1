@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 5717139775249134090}
   - component: {fileID: 2550312276046695032}
   - component: {fileID: 6294941843027156938}
+  - component: {fileID: 6869546557707406161}
+  - component: {fileID: 2907311240569187106}
   m_Layer: 0
   m_Name: EnemyTest
   m_TagString: Untagged
@@ -99,3 +101,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletPrefab: {fileID: 0}
   _followRange: 10
+--- !u!114 &6869546557707406161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3487242354316913230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46dfe645a0819f94f867f2bb01221414, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2907311240569187106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3487242354316913230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ffa53bdd5e53a74696ee2f642d52272, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
