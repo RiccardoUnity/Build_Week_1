@@ -14,10 +14,17 @@ TagManager:
   - Player
   - Water
   - UI
+<<<<<<< Updated upstream
   - Enemy
   - Bullet
   - PickUp
   - 
+=======
+  - Player
+  - Enemy
+  - Bullet
+  - EnemyBullet
+>>>>>>> Stashed changes
   - 
   - 
   - 
