@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GSU = GameUtility.GameStaticUtility;
+
 
 
 public class RangerEnemy : Enemy
@@ -11,7 +13,7 @@ public class RangerEnemy : Enemy
     {
         if (CheckPlayerInRange(out Vector2 directionToPlayer))
         {
-            float distance = Vector2.Distance(transform.position, _player.transform.position);
+            float distance = Vector2.Distance(transform.position, Player.transform.position);
 
             if (distance > _stopDistance)
             {

@@ -5,6 +5,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed = 5f;
     private Rigidbody2D _rb;
     public Vector2 Dir { get; private set; }
+
+    void Awake()
+    {
+        // Assicurati che il Player sia registrato nel GameStaticUtility
+        GameUtility.GameStaticUtility.Player = gameObject;
+    }
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
