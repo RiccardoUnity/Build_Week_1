@@ -28,8 +28,13 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void Start()
     {
-             Player = GSU.Player?.GetComponent<PlayerController>();
+        Player = GSU.Player?.GetComponent<PlayerController>();
 
+    }
+
+    public void Update()
+    {
+        DropObject();
     }
 
 
@@ -78,13 +83,22 @@ public abstract class Enemy : MonoBehaviour
         dir = newDir.normalized;
     }
 
+    public void DropObject()
+    {
+        if (LifeController.Hp == 0)
+        {
+            int i = Random.Range(0, 100);
+            if (i <= 15)
+            {
+                Instantiate(prefabPickUp, transform.position, Quaternion.identity);
+            }
+        }
+
+
+    }
+
     protected virtual void OnDestroy()
     {
-        int i = Random.Range(0, 100);
-        if (i <= 15)
-        {
-            Instantiate(prefabPickUp, transform.position, Quaternion.identity);
-        }
 
         GSU.RemoveEnemy(this);
 
