@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float speed = 5;
+    [SerializeField] private float speed = 5f;
     private Rigidbody2D _rb;
-    public Vector2 dir { get; private set; }
+    public Vector2 Dir { get; private set; }
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -12,11 +12,11 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        float _horizontal = Input.GetAxis($"Horizontal");
-        float _vertical = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
 
-        dir = new Vector2(_horizontal, _vertical).normalized;
+        Dir = new Vector2(horizontal, vertical).normalized;
         
-        _rb.MovePosition(_rb.position + dir * (speed * Time.deltaTime));
+        _rb.MovePosition(_rb.position + Dir * (speed * Time.fixedDeltaTime));
     }
 }

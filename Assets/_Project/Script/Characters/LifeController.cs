@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.Rendering;
+using GSU = GameUtility.GameStaticUtility;
 
 public class LifeController : MonoBehaviour
 {

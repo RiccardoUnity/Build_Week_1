@@ -10,13 +10,13 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PickUp
   - Water
   - UI
   - Player
   - Enemy
   - Bullet
-  - EnemyBullet
+  - 
   - 
   - 
   - 
@@ -42,4 +42,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Object
+    uniqueID: 2938623173
+    locked: 0
+  - name: Character
+    uniqueID: 4278847009
     locked: 0

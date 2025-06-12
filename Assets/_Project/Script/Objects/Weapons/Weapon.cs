@@ -1,18 +1,18 @@
 using UnityEngine;
+using GSU = GameUtility.GameStaticUtility;
 
 public class Weapon : MonoBehaviour
 {
-    private int _damage; // lo gestisce bullet?
+    private int _damage; // passato a bullet
     private float _fireRange;
     private float fireRate;
     private float _lastShotTime;
     private Transform _bullets;
-    [SerializeField] private Bullet bulletPrefab;
-    [SerializeField] private string targetTag = "Enemy"; // settare "player" da inspector per gli enemy
+    [SerializeField] private Bullet BulletPrefab;
 
     public GameObject FindNearestTarget()
     {
-        GameObject[] targets = GameObject.FindGameObjectsWithTag(targetTag);
+        GameObject[] targets = GameObject.FindGameObjectsWithTag(GSU.EnemyTag);  //Vedi lista nemici in using GSU
         GameObject nearest = null;
         float shortestDistance = Mathf.Infinity;
 
@@ -44,9 +44,9 @@ public class Weapon : MonoBehaviour
             if (Time.time - _lastShotTime > fireRate)
             {
                 _lastShotTime = Time.time;
-                Bullet b = Instantiate(bulletPrefab, transform.position, transform.rotation);
+                Bullet b = Instantiate(BulletPrefab, transform.position, transform.rotation);
                 Vector2 force = (enemy.transform.position - transform.position).normalized;
-                b.ShootBullet(transform.parent, force); // nome metodo bullet
+                b.ShootBullet(tag, force, _damage); // nome metodo bullet
             }
         }
     }
