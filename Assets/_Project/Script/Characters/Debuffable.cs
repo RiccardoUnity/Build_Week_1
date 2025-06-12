@@ -26,21 +26,25 @@ public class Debuffable : MonoBehaviour
         HandleDamageOverTime();
     }
 
-    private void HandleSpeedDebuff() // Gestisce il debuff di velocità
+    private void HandleSpeedDebuff()
     {
-        if (_speedTimer > 0) // se il timer del debuff di velocità è attivo
+        if (_speedTimer > 0f)
         {
-            _speedTimer -= Time.deltaTime; // decrementa il timer del debuff di velocità
+            _speedTimer -= Time.deltaTime; // Decrementa il timer del debuff di velocità
 
-            if (_renderer != null)
-                _renderer.color = Color.blue; // cambia il colore del renderer per indicare il debuff
-
-            if (_speedTimer <= 0) // se il timer è scaduto
+            if (_speedTimer <= 0f) // Se il timer è scaduto
             {
-                SpeedMultiplier = 1f;
+                SpeedMultiplier = 1f; // Ripristina la velocità normale
                 if (_renderer != null)
-                    _renderer.color = Color.white;// ripristina il colore originale
+                    _renderer.color = Color.white; // Ripristina il colore del renderer
             }
+            else // Se il timer è ancora attivo
+            {
+                // Mantieni il colore blu per indicare il debuff di velocità
+                if (_renderer != null)
+                    _renderer.color = Color.blue;
+            }
+
         }
     }
 
@@ -65,9 +69,13 @@ public class Debuffable : MonoBehaviour
 
     public void ApplySpeedDebuff(float multiplier, float duration)
     {
-        SpeedMultiplier = multiplier; // imposta il moltiplicatore di velocità
-        _speedTimer = Mathf.Max(_speedTimer, duration); // evita che uno più corto sovrascriva
+        SpeedMultiplier = multiplier;
+        _speedTimer = duration;
+
+        if (_renderer != null)
+            _renderer.color = Color.blue;
     }
+
 
     public void ApplyDamageOverTime(int damagePerTick, float tickInterval, float duration)
     {

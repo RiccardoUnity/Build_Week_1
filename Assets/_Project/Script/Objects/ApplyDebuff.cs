@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ApplyDebuff : MonoBehaviour
 {
@@ -21,12 +21,16 @@ public class ApplyDebuff : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log($"Trigger con {collision.name}");
+
         if (collision.TryGetComponent(out Debuffable debuffable))
             AppDebuff(debuffable);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionExit2D(Collision2D collision)
     {
+        Debug.Log($"Collisione con {collision.gameObject.name}");
+
         if (collision.gameObject.TryGetComponent(out Debuffable debuffable))
             AppDebuff(debuffable);
     }
@@ -34,6 +38,8 @@ public class ApplyDebuff : MonoBehaviour
 
     private void AppDebuff(Debuffable target)
     {
+        Debug.Log($"[DEBUG] AppDebuff chiamato su {target.name}");
+
         switch (_debuffType)
         {
             case DebuffType.VelocityModifier:

@@ -52,7 +52,7 @@ public class LifeController : MonoBehaviour
         if (Hp == 0)
         {
             Debug.Log($"Il giocatore {gameObject.name} è stato sconfitto");
-            Destroy(gameObject);
+            Destroy(gameObject, 0.1f); // Ho bisogno di questo per il debuff dei kamikaze, per quello che riguarda i Bullet occorrerà fare lo stesso altrimenti si distruggerà il bullet prima di applicare il debuff
         }
 
         FlashColor(Color.red); // lampeggia di rosso quando subisce danni

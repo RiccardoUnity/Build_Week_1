@@ -10,7 +10,6 @@ public class KamikazeEnemy : Enemy
         if (CheckPlayerInRange())
         {
             Vector2 direction = Player.transform.position - transform.position;
-            Debug.Log($"Direzione calcolata: {direction}");
 
             EnemyMovement(direction);
         }
