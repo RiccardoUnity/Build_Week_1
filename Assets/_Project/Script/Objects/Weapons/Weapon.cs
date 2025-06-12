@@ -3,14 +3,14 @@ using GSU = GameUtility.GameStaticUtility;
 
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] protected int Damage; // passato a bullet
+    [SerializeField] protected int Damage = 10; // passato a bullet
     private float _fireRange;
     protected float fireRate = 0.5f;
     protected float _lastShotTime;
     private Transform _bullets;
     [SerializeField] protected Bullet BulletPrefab;
-    private Vector2 _lastMoveDirection;
-    private PlayerController _playerController; 
+    protected Vector2 _lastMoveDirection;
+    protected PlayerController _playerController; 
 
     public void UpdateDirection(Vector2 moveDirection)
     {
