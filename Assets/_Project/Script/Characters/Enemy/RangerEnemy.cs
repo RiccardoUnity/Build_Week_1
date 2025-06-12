@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GSU = GameUtility.GameStaticUtility;
+
 
 
 public class RangerEnemy : Enemy

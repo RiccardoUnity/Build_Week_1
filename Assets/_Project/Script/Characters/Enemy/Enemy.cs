@@ -27,17 +27,27 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void Start()
     {
-        Player = GSU.Player?.GetComponent<PlayerController>();
+             Player = GSU.Player?.GetComponent<PlayerController>();
+
     }
+
 
     protected float GetCurrentSpeed()
     {
-        return baseSpeed * (debuffable != null ? debuffable.GetSpeedMultiplier() : 1f);
+        float multiplier = debuffable != null ? Mathf.Max(debuffable.SpeedMultiplier, 0.01f) : 1f;
+        return baseSpeed * multiplier;
     }
 
     public virtual bool CheckPlayerInRange()
     {
+        if (Player == null && GSU.Player != null)
+        {
+            Player = GSU.Player.GetComponent<PlayerController>();
+            Debug.Log("[Enemy] Player assegnato a runtime");
+        }
+
         if (Player == null) return false;
+
         float sqrDist = (Player.transform.position - transform.position).sqrMagnitude;
         return sqrDist < followRange * followRange;
     }

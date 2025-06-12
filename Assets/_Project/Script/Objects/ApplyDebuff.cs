@@ -19,8 +19,6 @@ public class ApplyDebuff : MonoBehaviour
     [SerializeField] private int _damagePerTick = 1;
     [SerializeField] private float _tickInterval = 1f;
 
-    [SerializeField] private bool _destroyOnHit = true;
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out Debuffable debuffable))

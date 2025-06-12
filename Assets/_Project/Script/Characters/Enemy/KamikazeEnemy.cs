@@ -1,4 +1,6 @@
 using UnityEngine;
+using GSU = GameUtility.GameStaticUtility;
+
 
 public class KamikazeEnemy : Enemy
 {
@@ -7,10 +9,12 @@ public class KamikazeEnemy : Enemy
     {
         if (CheckPlayerInRange())
         {
-            EnemyMovement(Player.transform.position - transform.position);
+            Vector2 direction = Player.transform.position - transform.position;
+            Debug.Log($"Direzione calcolata: {direction}");
+
+            EnemyMovement(direction);
         }
     }
-
 
     void OnCollisionEnter2D(Collision2D collision)
     {
