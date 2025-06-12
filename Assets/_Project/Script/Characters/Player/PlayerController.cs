@@ -6,11 +6,11 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rb;
     public Vector2 Dir { get; private set; }
 
-    void Awake()
-    {
-        // Assicurati che il Player sia registrato nel GameStaticUtility
-        GameUtility.GameStaticUtility.Player = gameObject;
-    }
+    //void Awake()
+    //{
+    //    // Assicurati che il Player sia registrato nel GameStaticUtility
+    //    GameUtility.GameStaticUtility.Player = transform;
+    //}
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
