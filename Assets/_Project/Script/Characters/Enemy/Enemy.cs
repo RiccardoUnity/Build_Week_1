@@ -80,12 +80,13 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void OnDestroy()
     {
-        GSU.RemoveEnemy(this);
-
         int i = Random.Range(0, 100);
-        if(i <= 15)
+        if (i <= 15)
         {
             Instantiate(prefabPickUp, transform.position, Quaternion.identity);
         }
+
+        GSU.RemoveEnemy(this);
+
     }
 }
