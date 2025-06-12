@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed = 5f;
     private Rigidbody2D _rb;
     public Vector2 Dir { get; private set; }
+    [SerializeField] private Weapon weapon;
 
     void Awake()
     {
@@ -22,7 +23,8 @@ public class PlayerController : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
 
         Dir = new Vector2(horizontal, vertical).normalized;
-        
+
+        weapon.UpdateDirection(Dir);
         _rb.MovePosition(_rb.position + Dir * (speed * Time.fixedDeltaTime));
     }
 }

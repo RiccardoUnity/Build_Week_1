@@ -3,51 +3,43 @@ using GSU = GameUtility.GameStaticUtility;
 
 public class Weapon : MonoBehaviour
 {
-    private int _damage; // passato a bullet
+    protected int _damage; // passato a bullet
     private float _fireRange;
-    private float fireRate;
-    private float _lastShotTime;
+    protected float fireRate = 0.5f;
+    protected float _lastShotTime;
     private Transform _bullets;
-    [SerializeField] private Bullet BulletPrefab;
+    [SerializeField] protected Bullet BulletPrefab;
+    private Vector2 _lastMoveDirection;
 
-    public GameObject FindNearestTarget()
-    {
-        GameObject[] targets = GameObject.FindGameObjectsWithTag(GSU.EnemyTag);  //Vedi lista nemici in using GSU
-        GameObject nearest = null;
-        float shortestDistance = Mathf.Infinity;
-
-        foreach (GameObject target in targets)
+public void UpdateDirection(Vector2 moveDirection)
+{
+        if (moveDirection != Vector2.zero)
         {
-
-            float distance = Vector2.Distance(transform.position, target.transform.position);
-            if (distance < shortestDistance)
-            {
-                shortestDistance = distance;
-                nearest = target;
-            }
-            if (nearest == null)
-            {
-                //Debug.Log("Tutti i nemici distrutti");
-                return null;
-            }
+            _lastMoveDirection = moveDirection;
         }
-        return nearest;
-    }
+}
 
-    public void Shoot()
+    public virtual void Shoot()
     {
-        GameObject enemy = FindNearestTarget();
-        if (enemy == null) return;
+        //GameObject enemy = FindNearestTarget();
+        //if (enemy == null) return;
 
-        if (Vector2.Distance(transform.position, enemy.transform.position) <= _fireRange)
+        //if (Vector2.Distance(transform.position, enemy.transform.position) <= _fireRange)
+        //{
+        //    if (Time.time - _lastShotTime > fireRate)
+        //    {
+        //        _lastShotTime = Time.time;
+        //        Bullet b = Instantiate(BulletPrefab, transform.position, transform.rotation);
+        //        Vector2 force = (enemy.transform.position - transform.position).normalized;
+        //        b.ShootBullet(tag, force, _damage); // nome metodo bullet
+        //    }
+        //}
+        if (Time.time - _lastShotTime > fireRate)
         {
-            if (Time.time - _lastShotTime > fireRate)
-            {
-                _lastShotTime = Time.time;
-                Bullet b = Instantiate(BulletPrefab, transform.position, transform.rotation);
-                Vector2 force = (enemy.transform.position - transform.position).normalized;
-                b.ShootBullet(tag, force, _damage); // nome metodo bullet
-            }
+            _lastShotTime = Time.time;
+            Bullet b = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
+            b.ShootBullet(tag, _lastMoveDirection, _damage);
+            Debug.Log(_lastMoveDirection);
         }
     }
 
