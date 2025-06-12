@@ -57,7 +57,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2107654654407706590, guid: 2af1bbb736eca784191438a4e2ba50f4, type: 3}
-      insertIndex: -1
+      insertIndex: 5
       addedObject: {fileID: 1898508687092569322}
   m_SourcePrefab: {fileID: 100100000, guid: 2af1bbb736eca784191438a4e2ba50f4, type: 3}
 --- !u!1 &7567848970552404437 stripped
@@ -80,4 +80,4 @@ MonoBehaviour:
   _speed: 2
   _dmg: 0
   FollowRange: 10
-  _timeToChangeDirection: 0
+  _timeToChangeDirection: 5
