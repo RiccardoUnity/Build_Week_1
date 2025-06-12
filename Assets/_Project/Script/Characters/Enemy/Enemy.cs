@@ -7,7 +7,7 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] private float baseSpeed = 2f;
     [SerializeField] private int damage = 1;
     [SerializeField] private float followRange = 10f;
-    [SerializeField] PickUp prefabPickUp;
+ 
 
     private Rigidbody2D rb;
     private Vector2 dir;
@@ -60,6 +60,7 @@ public abstract class Enemy : MonoBehaviour
 
     public virtual bool CheckPlayerInRange(out Vector2 playerDirection)
     {
+
         playerDirection = Player != null ? (Vector2)(Player.transform.position - transform.position) : Vector2.zero;
         return playerDirection.sqrMagnitude < followRange * followRange;
     }
@@ -81,20 +82,6 @@ public abstract class Enemy : MonoBehaviour
     public void SetDirection(Vector2 newDir)
     {
         dir = newDir.normalized;
-    }
-
-    public void DropObject()
-    {
-        if (LifeController.Hp == 0)
-        {
-            int i = Random.Range(0, 100);
-            if (i <= 15)
-            {
-                Instantiate(prefabPickUp, transform.position, Quaternion.identity);
-            }
-        }
-
-
     }
 
     protected virtual void OnDestroy()

@@ -8,8 +8,10 @@ public class LifeController : MonoBehaviour
     [SerializeField] private int _maxHp = 100;
     [SerializeField] private float _advisorTime = 0.2f;
 
+    [SerializeField] PickUp prefabPickUp;
+
     private float _timer = 0;
-   private SpriteRenderer _renderer;
+    private SpriteRenderer _renderer;
 
     private void Start()
     {
@@ -58,6 +60,7 @@ public class LifeController : MonoBehaviour
             else
             {
                 Destroy(gameObject, 0.1f);
+
             }
         }
 
@@ -86,5 +89,16 @@ public class LifeController : MonoBehaviour
             _renderer.color = color;
             _timer = _advisorTime;
         }
+    }
+
+    public void DropObject()
+    {
+
+            int i = Random.Range(0, 100);
+            if (i <= 15)
+            {
+                Instantiate(prefabPickUp, transform.position, Quaternion.identity);
+            }
+
     }
 }
