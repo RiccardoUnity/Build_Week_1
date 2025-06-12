@@ -26,8 +26,8 @@ namespace GameUtility
 
         //PLAYER IN SCENA
         private static bool _playerAlreadySet = false;
-        private static GameObject _player;
-        public static GameObject Player
+        private static Transform _player;
+        public static Transform Player
         {
             get => _player;
             set

@@ -51,13 +51,22 @@ public class LifeController : MonoBehaviour
 
         if (Hp == 0)
         {
-            Debug.Log($"Il giocatore {gameObject.name} è stato sconfitto");
-            Destroy(gameObject, 0.1f); // Ho bisogno di questo per il debuff dei kamikaze, per quello che riguarda i Bullet occorrerà fare lo stesso altrimenti si distruggerà il bullet prima di applicare il debuff
+            if (tag.Equals(GSU.PlayerTag))
+            {
+                GSU.ReloadScene();
+            }
+            else
+            {
+                Destroy(gameObject, 0.1f);
+            }
         }
 
         FlashColor(Color.red); // lampeggia di rosso quando subisce danni
 
-        Debug.Log($"La vita attuale del giocatore {gameObject.name} è pari a {Hp}");
+        if (tag.Equals(GSU.PlayerTag))
+        {
+            Debug.Log($"La vita attuale del giocatore {gameObject.name} è pari a {Hp}");
+        }
     }
 
     public void AddHp(int healAmount)

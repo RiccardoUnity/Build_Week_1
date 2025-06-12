@@ -10,7 +10,7 @@ public class EnemyInstantiate : MonoBehaviour
     [SerializeField] int enemySpawnRange = 10;
 
     [SerializeField] GameObject enemyPrefab;
-    [SerializeField] List<GameObject> enemyList = new List<GameObject>();
+    List<GameObject> enemyList = new List<GameObject>();
     PlayerController _playerController; // Riferimento al PlayerController per controllare la distanza dal giocatore
 
     void Start()
@@ -48,6 +48,7 @@ public class EnemyInstantiate : MonoBehaviour
             if (AcceptablePosition(spawnPosition))
             {
                 GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+                //
                 enemyList.Add(enemy);
                 i++;
             }
@@ -66,6 +67,14 @@ public class EnemyInstantiate : MonoBehaviour
 
     bool AcceptablePosition(Vector2 spawnPosition) // Controlla se la posizione di spawn è accettabile
     {
+        for (int i = enemyList.Count - 1; i >= 0; i--)
+        {
+            if (enemyList[i] == null)
+            {
+                enemyList.RemoveAt(i);
+            }
+        }
+
         foreach (GameObject precedentEnemy in enemyList)
         {
             float distance = Vector2.Distance(spawnPosition, precedentEnemy.transform.position);// Calcola la distanza tra la posizione di spawn e la posizione degli enemy già presenti

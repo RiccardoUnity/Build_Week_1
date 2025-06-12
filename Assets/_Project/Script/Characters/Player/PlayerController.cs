@@ -7,11 +7,11 @@ public class PlayerController : MonoBehaviour
     public Vector2 Dir { get; private set; }
     [SerializeField] private Weapon weapon;
 
-    void Awake()
-    {
-        // Assicurati che il Player sia registrato nel GameStaticUtility
-        GameUtility.GameStaticUtility.Player = gameObject;
-    }
+    //void Awake()
+    //{
+    //    // Assicurati che il Player sia registrato nel GameStaticUtility
+    //    GameUtility.GameStaticUtility.Player = transform;
+    //}
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();

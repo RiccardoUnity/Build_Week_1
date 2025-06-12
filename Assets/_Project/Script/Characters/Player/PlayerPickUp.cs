@@ -16,7 +16,7 @@ public class PlayerPickUp : MonoBehaviour
     void Awake()
     {
         //Setto una volta per tutte il Player della scena in GSU
-        GSU.Player = this.gameObject;
+        GSU.Player = this.transform;
 
         //Controllo che non ci siano referenze null in _weaponsAsset
         foreach (Weapon weapon in _weaponsAsset)
