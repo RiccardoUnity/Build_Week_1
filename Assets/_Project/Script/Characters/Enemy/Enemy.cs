@@ -7,6 +7,7 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] private float baseSpeed = 2f;
     [SerializeField] private int damage = 1;
     [SerializeField] private float followRange = 10f;
+    [SerializeField] PickUp prefabPickUp;
 
     private Rigidbody2D rb;
     private Vector2 dir;
@@ -80,5 +81,11 @@ public abstract class Enemy : MonoBehaviour
     protected virtual void OnDestroy()
     {
         GSU.RemoveEnemy(this);
+
+        int i = Random.Range(0, 100);
+        if(i >= 15)
+        {
+            Instantiate(prefabPickUp, transform.position, Quaternion.identity);
+        }
     }
 }
