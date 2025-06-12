@@ -6,9 +6,9 @@
   - Tags:
     - Untagged, Respawn, Finish, EditorOnly, MainCamera, Player, GameController, PickUp, Enemy
   - Layers:
-    - Default, TransparentFX, Ignore Raycast, PickUp, Water, UI, Player, Enemy, Bullet
+    - Default, TransparentFX, Ignore Raycast, PickUp, Water, UI, Player, Enemy, Bullet, BulletEnemy
 - Active game object:
-  - Name: Player
-  - Tag: Untagged
-  - Layer: Default
+  - Name: Player (1)
+  - Tag: Player
+  - Layer: Player
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
