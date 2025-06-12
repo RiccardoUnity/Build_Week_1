@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 6049516833248693536}
   - component: {fileID: 8198308863271022218}
   - component: {fileID: 8119697027268204437}
+  - component: {fileID: -6670972859698749366}
   m_Layer: 7
-  m_Name: EnemyBasic
+  m_Name: EnemyBase
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,3 +163,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHp: 100
+--- !u!114 &-6670972859698749366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107654654407706590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f65e0399bcd85c145bdaea7bfdb78172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BulletPrefab: {fileID: 0}

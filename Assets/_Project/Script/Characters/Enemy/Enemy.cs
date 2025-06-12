@@ -15,8 +15,8 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] int _dmg;
     public int Dmg => _dmg;
 
-    [SerializeField] Bullet _bulletPrefab;
-    public Bullet BulletPrefab => _bulletPrefab;
+    //[SerializeField] Bullet _bulletPrefab;
+    //public Bullet BulletPrefab => _bulletPrefab;
 
     [SerializeField] float FollowRange = 10f;
 
@@ -27,7 +27,7 @@ public abstract class Enemy : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         _player = FindAnyObjectByType<PlayerController>();
     }
@@ -82,10 +82,10 @@ public abstract class Enemy : MonoBehaviour
     }
 
 
-    virtual public void EnemyAttack()
-    {
+    //virtual public void EnemyAttack()
+    //{
 
-    }
+    //}
 
     public void Setdirection(Vector2 dir)
     {
