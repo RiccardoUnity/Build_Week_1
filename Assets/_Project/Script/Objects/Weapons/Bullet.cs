@@ -26,7 +26,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        LifeController lifeController = GetComponent<LifeController>();
+        LifeController lifeController = other.GetComponent<LifeController>();
         if (lifeController != null)
         {
             //Enemy spara al Player o Player spara ad Enemy

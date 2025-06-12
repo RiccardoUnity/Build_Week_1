@@ -6,11 +6,11 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rb;
     public Vector2 Dir { get; private set; }
 
-    void Awake()
-    {
-        // Assicurati che il Player sia registrato nel GameStaticUtility
-        GameUtility.GameStaticUtility.Player = gameObject;
-    }
+    //void Awake()
+    //{
+    //    // Assicurati che il Player sia registrato nel GameStaticUtility
+    //    GameUtility.GameStaticUtility.Player = transform;
+    //}
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
 
         Dir = new Vector2(horizontal, vertical).normalized;
-        
+
         _rb.MovePosition(_rb.position + Dir * (speed * Time.fixedDeltaTime));
     }
 }
