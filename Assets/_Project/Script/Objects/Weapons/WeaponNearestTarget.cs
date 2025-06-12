@@ -5,11 +5,10 @@ using GSU = GameUtility.GameStaticUtility;
 
 public class WeaponNearestTarget : Weapon
 {
-    private bool isPlayer = false;
-
     public GameObject FindNearestTarget()
     {
-        GameObject[] targets = GameObject.FindGameObjectsWithTag(GSU.EnemyTag);  //Vedi lista nemici in using GSU
+        string targetTag = GetTargetTag();
+        GameObject[] targets = GameObject.FindGameObjectsWithTag(targetTag);  //Vedi lista nemici in using GSU
         GameObject nearest = null;
         float shortestDistance = Mathf.Infinity;
 
@@ -21,11 +20,6 @@ public class WeaponNearestTarget : Weapon
             {
                 shortestDistance = distance;
                 nearest = target;
-            }
-            if (nearest == null)
-            {
-                //Debug.Log("Tutti i nemici distrutti");
-                return null;
             }
         }
         return nearest;
@@ -44,6 +38,19 @@ public class WeaponNearestTarget : Weapon
             Bullet b = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
             b.ShootBullet(tag, force, Damage); // puoi usare _damage se lo esponi come `protected`
         }
+    }
+
+    private string GetTargetTag()
+    {
+        if (CompareTag(GSU.PlayerTag))
+        {
+            return GSU.EnemyTag;
+        }
+        else if (CompareTag(GSU.EnemyTag))
+        {
+            return GSU.PlayerTag;
+        }
+        return null;
     }
 
     void Update()
