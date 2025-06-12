@@ -5,6 +5,7 @@ using GSU = GameUtility.GameStaticUtility;
 
 public class WeaponNearestTarget : Weapon
 {
+    private bool isPlayer = false;
 
     public GameObject FindNearestTarget()
     {
@@ -41,7 +42,7 @@ public class WeaponNearestTarget : Weapon
             Vector2 force = (enemy.transform.position - transform.position).normalized;
 
             Bullet b = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
-            b.ShootBullet(tag, force, _damage); // puoi usare _damage se lo esponi come `protected`
+            b.ShootBullet(tag, force, Damage); // puoi usare _damage se lo esponi come `protected`
         }
     }
 

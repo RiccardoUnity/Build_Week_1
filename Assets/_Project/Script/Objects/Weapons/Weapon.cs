@@ -3,7 +3,7 @@ using GSU = GameUtility.GameStaticUtility;
 
 public class Weapon : MonoBehaviour
 {
-    protected int _damage; // passato a bullet
+    [SerializeField] protected int Damage; // passato a bullet
     private float _fireRange;
     protected float fireRate = 0.5f;
     protected float _lastShotTime;
@@ -26,7 +26,7 @@ public class Weapon : MonoBehaviour
         {
             _lastShotTime = Time.time;
             Bullet b = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
-            b.ShootBullet(tag, _lastMoveDirection, _damage);
+            b.ShootBullet(tag, _lastMoveDirection, Damage);
         }
     }
 
