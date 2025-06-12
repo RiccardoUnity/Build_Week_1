@@ -7,19 +7,18 @@ public class KamikazeEnemy : Enemy
     {
         if (CheckPlayerInRange())
         {
-            EnemyMovement(_player.transform.position - transform.position);
+            EnemyMovement(Player.transform.position - transform.position);
         }
     }
-    
+
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject == _player.gameObject)
+        if (collision.gameObject == Player.gameObject)
         {
             collision.gameObject.GetComponent<LifeController>().TakeDamage(Dmg); // Rimuove 10 punti vita al giocatore quando l'enemy lo colpisce
-            _lifeController.TakeDamage(_lifeController.Hp); // Rimuove tutti i punti vita all'enemy quando colpisce il giocatore
+            LifeController.TakeDamage(LifeController.Hp); // Rimuove tutti i punti vita all'enemy quando colpisce il giocatore
         }
     }
 
 }
-

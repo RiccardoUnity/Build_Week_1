@@ -1,4 +1,5 @@
 using UnityEngine;
+using GSU = GameUtility.GameStaticUtility;
 
 public abstract class Enemy : MonoBehaviour
 {
@@ -8,8 +9,8 @@ public abstract class Enemy : MonoBehaviour
     Vector2 _dir;
     Vector2 Dir => _dir.normalized;
 
-    public LifeController _lifeController { get; set; }
-    public PlayerController _player { get; private set; }
+    public LifeController LifeController { get; set; }
+    public PlayerController Player { get; private set; }
 
     Rigidbody2D _rb;
     [SerializeField] int _dmg;
@@ -23,32 +24,32 @@ public abstract class Enemy : MonoBehaviour
     void Awake()
     {
 
-        _lifeController = GetComponent<LifeController>();
+        LifeController = GetComponent<LifeController>();
         _rb = GetComponent<Rigidbody2D>();
     }
 
     protected virtual void Start()
     {
-        _player = GameUtility.GameStaticUtility.Player.GetComponent<PlayerController>();
+        Player = GSU.Player.GetComponent<PlayerController>();
     }
 
 
     public virtual bool CheckPlayerInRange()
     {
-        if (_player == null) return false;
-        float sqrDistance = (_player.transform.position - transform.position).sqrMagnitude;
+        if (Player == null) return false;
+        float sqrDistance = (Player.transform.position - transform.position).sqrMagnitude;
         return sqrDistance < FollowRange * FollowRange;
     }
 
     public virtual bool CheckPlayerInRange(out Vector2 playerDirection)
     {
-        if (_player == null)
+        if (Player == null)
         {
             playerDirection = Vector2.zero;
             return false;
         }
 
-        playerDirection = _player.transform.position - transform.position;
+        playerDirection = Player.transform.position - transform.position;
         return playerDirection.sqrMagnitude < FollowRange * FollowRange;
     }
     virtual public void EnemyMovement()
@@ -90,7 +91,7 @@ public abstract class Enemy : MonoBehaviour
 
     void OnDestroy()
     {
-        GameUtility.GameStaticUtility.RemoveEnemy(this);
+        GSU.RemoveEnemy(this);
     }
 
 }

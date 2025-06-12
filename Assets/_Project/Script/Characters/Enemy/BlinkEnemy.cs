@@ -39,7 +39,7 @@ public class BlinkEnemy : Enemy
                 transform.position.y + Random.Range(-_teleportRange, _teleportRange)
             );
 
-            distanceToPlayer = Vector2.Distance(newPos, _player.transform.position);
+            distanceToPlayer = Vector2.Distance(newPos, Player.transform.position);
             tryCount++;
 
             if (tryCount > 50)
