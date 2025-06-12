@@ -1,97 +1,74 @@
 using UnityEngine;
 using GSU = GameUtility.GameStaticUtility;
 
+[RequireComponent(typeof(Rigidbody2D), typeof(LifeController))]
 public abstract class Enemy : MonoBehaviour
 {
+    [SerializeField] private float baseSpeed = 2f;
+    [SerializeField] private int damage = 1;
+    [SerializeField] private float followRange = 10f;
 
-    [SerializeField] float _speed = 2;
+    private Rigidbody2D rb;
+    private Vector2 dir;
+    private Debuffable debuffable;
 
-    Vector2 _dir;
-    Vector2 Dir => _dir.normalized;
-
-    public LifeController LifeController { get; set; }
+    public LifeController LifeController { get; private set; }
     public PlayerController Player { get; private set; }
 
-    Rigidbody2D _rb;
-    [SerializeField] int _dmg;
-    public int Dmg => _dmg;
+    public int Dmg => damage;
+    private Vector2 Dir => dir.normalized;
 
-    //[SerializeField] Bullet _bulletPrefab;
-    //public Bullet BulletPrefab => _bulletPrefab;
-
-    [SerializeField] float FollowRange = 10f;
-
-    void Awake()
+    protected virtual void Awake()
     {
-
+        rb = GetComponent<Rigidbody2D>();
         LifeController = GetComponent<LifeController>();
-        _rb = GetComponent<Rigidbody2D>();
+        debuffable = GetComponent<Debuffable>(); // opzionale
     }
 
     protected virtual void Start()
     {
-        Player = GSU.Player.GetComponent<PlayerController>();
+        Player = GSU.Player?.GetComponent<PlayerController>();
     }
 
+    protected float GetCurrentSpeed()
+    {
+        return baseSpeed * (debuffable != null ? debuffable.GetSpeedMultiplier() : 1f);
+    }
 
     public virtual bool CheckPlayerInRange()
     {
         if (Player == null) return false;
-        float sqrDistance = (Player.transform.position - transform.position).sqrMagnitude;
-        return sqrDistance < FollowRange * FollowRange;
+        float sqrDist = (Player.transform.position - transform.position).sqrMagnitude;
+        return sqrDist < followRange * followRange;
     }
 
     public virtual bool CheckPlayerInRange(out Vector2 playerDirection)
     {
-        if (Player == null)
-        {
-            playerDirection = Vector2.zero;
-            return false;
-        }
-
-        playerDirection = Player.transform.position - transform.position;
-        return playerDirection.sqrMagnitude < FollowRange * FollowRange;
+        playerDirection = Player != null ? (Vector2)(Player.transform.position - transform.position) : Vector2.zero;
+        return playerDirection.sqrMagnitude < followRange * followRange;
     }
-    virtual public void EnemyMovement()
+
+    public virtual void EnemyMovement()
     {
-        if (_rb == null) return;
-        if (_dir != Vector2.zero)
-        {
-            _rb.MovePosition(_rb.position + Dir * (_speed * Time.fixedDeltaTime));
-        }
-
-
+        if (rb == null || dir == Vector2.zero) return;
+        rb.MovePosition(rb.position + Dir * (GetCurrentSpeed() * Time.fixedDeltaTime));
     }
 
-    virtual public void EnemyMovement(Vector2 _dir)
+    public virtual void EnemyMovement(Vector2 newDir)
     {
-        if (_rb == null)
-        {
-            return;
-        }
-
-        if (_dir != Vector2.zero)
-        {
-
-            _rb.MovePosition(_rb.position + _dir.normalized * (_speed * Time.fixedDeltaTime));
-
-        }
+        if (rb == null || newDir == Vector2.zero) return;
+        rb.MovePosition(rb.position + newDir.normalized * (GetCurrentSpeed() * Time.fixedDeltaTime));
     }
 
+    public virtual void EnemyAttack() { }
 
-    virtual public void EnemyAttack()
+    public void SetDirection(Vector2 newDir)
     {
-
+        dir = newDir.normalized;
     }
 
-    public void Setdirection(Vector2 dir)
-    {
-        _dir = dir.normalized;
-    }
-
-    void OnDestroy()
+    protected virtual void OnDestroy()
     {
         GSU.RemoveEnemy(this);
     }
-
 }
