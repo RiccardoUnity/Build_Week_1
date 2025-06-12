@@ -12,11 +12,6 @@ public class KamikazeEnemy : Enemy
     }
     
 
-    public override void EnemyMovement()
-    {
-       
-    }
-
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject == _player.gameObject)

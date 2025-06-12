@@ -26,4 +26,12 @@ public class LifeController : MonoBehaviour
         }
         Debug.Log($"La vita attuale del giocatore {gameObject.name} è pari a {Mathf.Max(0, Hp)}");
     }
+
+    public void AddHp(int healAmount)
+    {
+        healAmount = Mathf.Abs(healAmount); // sicurezza: valore positivo
+        Hp = Mathf.Min(Hp + healAmount, _maxHp); // limite massimo
+
+        Debug.Log($"La vita attuale di {gameObject.name} è {Hp}");
+    }
 }

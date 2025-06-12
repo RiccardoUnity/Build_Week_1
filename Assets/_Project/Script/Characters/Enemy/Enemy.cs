@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
-{ 
+{
 
     [SerializeField] float _speed = 2;
 
@@ -10,7 +10,7 @@ public abstract class Enemy : MonoBehaviour
 
     public LifeController _lifeController { get; set; }
     public PlayerController _player { get; private set; }
-    
+
     Rigidbody2D _rb;
     [SerializeField] int _dmg;
     public int Dmg => _dmg;
@@ -29,73 +29,68 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void Start()
     {
-        _player = FindAnyObjectByType<PlayerController>();
-    }
-
-    void FixedUpdate() 
-    { 
-
-       
-
+        _player = GameUtility.GameStaticUtility.Player.GetComponent<PlayerController>();
     }
 
 
     public virtual bool CheckPlayerInRange()
     {
-        if (Vector3.Distance(transform.position, _player.transform.position) < FollowRange)
-        {
-            return true;
-        }
-
-        return false;
+        if (_player == null) return false;
+        float sqrDistance = (_player.transform.position - transform.position).sqrMagnitude;
+        return sqrDistance < FollowRange * FollowRange;
     }
-
 
     public virtual bool CheckPlayerInRange(out Vector2 playerDirection)
     {
-        if (Vector3.Distance(transform.position, _player.transform.position) < FollowRange)
+        if (_player == null)
         {
-            playerDirection = _player.transform.position - transform.position;
-            return true;
+            playerDirection = Vector2.zero;
+            return false;
         }
 
-        playerDirection = Vector2.zero;
-        return false;
+        playerDirection = _player.transform.position - transform.position;
+        return playerDirection.sqrMagnitude < FollowRange * FollowRange;
     }
-
     virtual public void EnemyMovement()
     {
+        if (_rb == null) return;
         if (_dir != Vector2.zero)
         {
             _rb.MovePosition(_rb.position + Dir * (_speed * Time.fixedDeltaTime));
         }
+
+
     }
 
     virtual public void EnemyMovement(Vector2 _dir)
     {
+        if (_rb == null)
+        {
+            return;
+        }
+
         if (_dir != Vector2.zero)
         {
 
-            _rb.MovePosition(_rb.position + _dir * (_speed * Time.fixedDeltaTime));
+            _rb.MovePosition(_rb.position + _dir.normalized * (_speed * Time.fixedDeltaTime));
 
         }
     }
 
 
-    //virtual public void EnemyAttack()
-    //{
+    virtual public void EnemyAttack()
+    {
 
-    //}
+    }
 
     public void Setdirection(Vector2 dir)
     {
-        float sqrLenght = dir.sqrMagnitude;
-        if (sqrLenght > 1)
-        {
-            dir = dir / Mathf.Sqrt(sqrLenght);
-        }
+        _dir = dir.normalized;
+    }
 
-        _dir = dir;
+    void OnDestroy()
+    {
+        GameUtility.GameStaticUtility.RemoveEnemy(this);
     }
 
 }

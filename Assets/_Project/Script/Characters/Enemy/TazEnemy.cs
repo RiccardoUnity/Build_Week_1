@@ -6,8 +6,9 @@ public class TazEnemy : Enemy
     [SerializeField] private float _timeToChangeDirection;
     private float _lastChangeDirection;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         _randomDirection = RandomDirection(); // iniziale
         _lastChangeDirection = Time.time + _timeToChangeDirection;
     }
