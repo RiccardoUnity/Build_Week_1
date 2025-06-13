@@ -7,7 +7,7 @@ public class WeaponMultipleBullets : Weapon
     [SerializeField] private float spreadAngle = 15f;
     public override void Shoot()
     {
-        if (Time.time - _lastShotTime > fireRate)
+        if (CanShootTarget() && Time.time - _lastShotTime > fireRate)
         {
             _lastShotTime = Time.time;
             Bullet b1 = Instantiate(BulletPrefab, transform.position, Quaternion.identity);

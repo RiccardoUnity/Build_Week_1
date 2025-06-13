@@ -4,13 +4,14 @@ using GSU = GameUtility.GameStaticUtility;
 public class Weapon : MonoBehaviour
 {
     [SerializeField] protected int Damage = 10; // passato a bullet
-    private float _fireRange;
+    [SerializeField] protected float fireRange = 10;
     protected float fireRate = 0.5f;
     protected float _lastShotTime;
     private Transform _bullets;
     [SerializeField] protected Bullet BulletPrefab;
     protected Vector2 _lastMoveDirection = Vector2.right;
-    protected PlayerController _playerController; 
+    protected PlayerController _playerController;
+    protected Transform enemy;
 
     public void UpdateDirection(Vector2 moveDirection)
     {
@@ -19,10 +20,23 @@ public class Weapon : MonoBehaviour
             _lastMoveDirection = moveDirection;
         }
     }
+    
+protected virtual bool CanShootTarget()
+{
+    bool isShooterEnemy = CompareTag(GSU.EnemyTag);
+
+    if (isShooterEnemy)
+    {
+        if (enemy == null) return false;
+        return Vector2.Distance(transform.position, enemy.position) <= fireRange;
+    }
+
+    return true; // il player può sempre sparare
+}
 
     public virtual void Shoot()
     {
-        if (Time.time - _lastShotTime > fireRate)
+        if (CanShootTarget() && Time.time - _lastShotTime > fireRate)
         {
             _lastShotTime = Time.time;
             Bullet b = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
@@ -30,9 +44,26 @@ public class Weapon : MonoBehaviour
         }
     }
 
+    protected string GetTargetTag()
+    {
+        if (CompareTag(GSU.PlayerTag))
+        {
+            return GSU.EnemyTag;
+        }
+        else if (CompareTag(GSU.EnemyTag))
+        {
+            return GSU.PlayerTag;
+        }
+        return null;
+    }
+
     void Start()
     {
         _playerController = GSU.Player.GetComponent<PlayerController>();
+        if (CompareTag(GSU.EnemyTag))
+        {
+            enemy = GSU.Player.transform;
+        }
         
     }
 
