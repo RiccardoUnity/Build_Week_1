@@ -95,5 +95,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f65e0399bcd85c145bdaea7bfdb78172, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 10
+  Damage: 5
+  fireRange: 10
   BulletPrefab: {fileID: 1086578407649063996, guid: 574f7986e5204c34db116569e9a7feb5, type: 3}
