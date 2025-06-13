@@ -1,28 +1,11 @@
 using UnityEngine;
+using GSU = GameUtility.GameStaticUtility;
 
 public class CameraFollow : MonoBehaviour
 {
-
-    public Transform target;
-    private Vector3 offset;
-
-    void Start()
-    {
-        if (target == null)
-        {
-            Debug.LogError("CameraFollow: Target non assegnato.");
-            return;
-        }
-
-        offset = transform.position - target.position;
-    }
-
     void LateUpdate()
     {
-        if (target == null) return;
-
-        Vector3 newPosition = target.position + offset;
-        transform.position = new Vector3(newPosition.x, newPosition.y, transform.position.z);
+        transform.position = new Vector3(GSU.Player.position.x, GSU.Player.position.y, transform.position.z);
     }
 
     //Edo
