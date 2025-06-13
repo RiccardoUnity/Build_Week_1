@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4574331288415846228, guid: 2af1bbb736eca784191438a4e2ba50f4, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8119697027268204437, guid: 2af1bbb736eca784191438a4e2ba50f4, type: 3}
       propertyPath: prefabPickUp
       value: 

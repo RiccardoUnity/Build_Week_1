@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1051616020177493412}
   m_Layer: 6
   m_Name: Weapons
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f65e0399bcd85c145bdaea7bfdb78172, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage: 100
   BulletPrefab: {fileID: 1086578407649063996, guid: bad8e648574fed94eae989e0c5053c67, type: 3}
 --- !u!1 &5736400697011322868
 GameObject:
@@ -171,6 +172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHp: 100
   _advisorTime: 0.2
+  prefabPickUp: {fileID: 6629365458702058758, guid: 967dbf9b4a7b58c4f92d6d79f744386a, type: 3}
 --- !u!114 &5854058983193334398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,7 +186,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  weapon: {fileID: 0}
 --- !u!114 &8953949209433059612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,9 +200,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weapons: {fileID: 4690098768828326339}
   _weaponsAsset:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: -4718032991065654478, guid: b8e6ffe266ed1414ab6f5d0e56e1ffcb, type: 3}
+  - {fileID: 8009191166752905397, guid: 894e7ad89b1be4fdeb6620a35dfb10e3, type: 3}
+  - {fileID: -4718032991065654478, guid: b8e6ffe266ed1414ab6f5d0e56e1ffcb, type: 3}
 --- !u!114 &-933806153470828242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,8 +300,8 @@ SpriteRenderer:
   m_SortingLayerID: -16120287
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.48584908, g: 0.80120695, b: 1, a: 1}
+  m_Sprite: {fileID: 1059996661, guid: bed3b8fb70d9f4446becf7197a1bc9ce, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
