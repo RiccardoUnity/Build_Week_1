@@ -13,8 +13,6 @@ GameObject:
   - component: {fileID: 6049516833248693536}
   - component: {fileID: 8198308863271022218}
   - component: {fileID: 8119697027268204437}
-  - component: {fileID: -6670972859698749366}
-  - component: {fileID: 2871200709283179367}
   m_Layer: 7
   m_Name: EnemyBase
   m_TagString: Enemy
@@ -165,30 +163,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHp: 100
   _advisorTime: 0.2
-  prefabPickUp: {fileID: 0}
---- !u!114 &-6670972859698749366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2107654654407706590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f65e0399bcd85c145bdaea7bfdb78172, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Damage: 10
-  BulletPrefab: {fileID: 0}
---- !u!114 &2871200709283179367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2107654654407706590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dba5b1d726303b4d851591455e32618, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  prefabPickUp: {fileID: 6629365458702058758, guid: 967dbf9b4a7b58c4f92d6d79f744386a, type: 3}
