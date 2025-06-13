@@ -13,7 +13,7 @@ public class LifeController : MonoBehaviour
     private float _timer = 0;
     private SpriteRenderer _renderer;
 
-    private void Start()
+    private void Awake()
     {
         Hp = _maxHp;
 
