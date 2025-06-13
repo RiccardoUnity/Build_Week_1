@@ -16,13 +16,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyRanger Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2107654654407706590, guid: 2af1bbb736eca784191438a4e2ba50f4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3965929603914225427, guid: 2af1bbb736eca784191438a4e2ba50f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.85733044
+      value: 14.316486
       objectReference: {fileID: 0}
     - target: {fileID: 3965929603914225427, guid: 2af1bbb736eca784191438a4e2ba50f4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.5255837
+      value: -1.3338857
       objectReference: {fileID: 0}
     - target: {fileID: 3965929603914225427, guid: 2af1bbb736eca784191438a4e2ba50f4, type: 3}
       propertyPath: m_LocalPosition.z
