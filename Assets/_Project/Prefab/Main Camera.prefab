@@ -109,7 +109,7 @@ MonoBehaviour:
   m_RenderShadows: 1
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
-  m_CameraType: 0
+  m_CameraType: 1
   m_Cameras: []
   m_RendererIndex: -1
   m_VolumeLayerMask:
@@ -150,4 +150,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fc4d04e21b49b344a49b74223e28d16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
