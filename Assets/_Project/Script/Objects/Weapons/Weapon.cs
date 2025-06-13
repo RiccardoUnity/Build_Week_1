@@ -9,7 +9,7 @@ public class Weapon : MonoBehaviour
     protected float _lastShotTime;
     private Transform _bullets;
     [SerializeField] protected Bullet BulletPrefab;
-    protected Vector2 _lastMoveDirection;
+    protected Vector2 _lastMoveDirection = Vector2.right;
     protected PlayerController _playerController; 
 
     public void UpdateDirection(Vector2 moveDirection)

@@ -18,15 +18,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2107654654407706590, guid: 2af1bbb736eca784191438a4e2ba50f4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3965929603914225427, guid: 2af1bbb736eca784191438a4e2ba50f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.316486
+      value: -16.995123
       objectReference: {fileID: 0}
     - target: {fileID: 3965929603914225427, guid: 2af1bbb736eca784191438a4e2ba50f4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.3338857
+      value: -0.7570431
       objectReference: {fileID: 0}
     - target: {fileID: 3965929603914225427, guid: 2af1bbb736eca784191438a4e2ba50f4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -104,5 +104,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca64e177fcc7e40aeab1963da96eb740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 10
+  Damage: 1
   BulletPrefab: {fileID: 1086578407649063996, guid: 574f7986e5204c34db116569e9a7feb5, type: 3}
