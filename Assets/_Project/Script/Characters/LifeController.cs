@@ -54,14 +54,11 @@ public class LifeController : MonoBehaviour
         if (Hp == 0)
         {
             if (tag.Equals(GSU.PlayerTag))
-            {
                 GSU.ReloadScene();
-            }
             else
-            {
-                Destroy(gameObject, 0.1f);
+                DropObject(); 
 
-            }
+            Destroy(gameObject, 0.1f);
         }
 
         FlashColor(Color.red); // lampeggia di rosso quando subisce danni

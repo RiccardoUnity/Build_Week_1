@@ -29,12 +29,8 @@ public abstract class Enemy : MonoBehaviour
     protected virtual void Start()
     {
         Player = GSU.Player?.GetComponent<PlayerController>();
+        GSU.AddEnemy(this);
 
-    }
-
-    public void Update()
-    {
-        DropObject();
     }
 
 

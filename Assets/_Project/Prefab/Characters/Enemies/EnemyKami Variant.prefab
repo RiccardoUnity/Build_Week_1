@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6670972859698749366, guid: 2af1bbb736eca784191438a4e2ba50f4, type: 3}
+      propertyPath: BulletPrefab
+      value: 
+      objectReference: {fileID: 1086578407649063996, guid: 574f7986e5204c34db116569e9a7feb5, type: 3}
     - target: {fileID: 2107654654407706590, guid: 2af1bbb736eca784191438a4e2ba50f4, type: 3}
       propertyPath: m_Name
       value: EnemyKami Variant
@@ -56,6 +60,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8119697027268204437, guid: 2af1bbb736eca784191438a4e2ba50f4, type: 3}
+      propertyPath: prefabPickUp
+      value: 
+      objectReference: {fileID: 6629365458702058758, guid: 967dbf9b4a7b58c4f92d6d79f744386a, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

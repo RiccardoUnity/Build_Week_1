@@ -17,13 +17,14 @@ public class BlinkEnemy : Enemy
         _nextTeleportTime = Time.time + _teleportInterval;
     }
 
-    private void Update()
+    protected void Update()
     {
         if (Time.time >= _nextTeleportTime)
         {
             Teleport();
             _nextTeleportTime = Time.time + _teleportInterval;
         }
+
     }
 
     private void Teleport()
