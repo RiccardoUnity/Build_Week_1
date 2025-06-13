@@ -1,4 +1,5 @@
 using UnityEngine;
+using GSU = GameUtility.GameStaticUtility;
 
 public class PlayerAudioTriggers : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class PlayerAudioTriggers : MonoBehaviour
             AudioManager.Instance.PlayHealPickupSFX();
         }
 
-        if (other.CompareTag("Equip"))
+        if (other.CompareTag(GSU.PickUpTag))
         {
             AudioManager.Instance.PlayEquipPickupSFX();
         }
@@ -17,7 +18,7 @@ public class PlayerAudioTriggers : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag(GSU.EnemyTag))
         {
             AudioManager.Instance.PlayHitSFX();
         }
