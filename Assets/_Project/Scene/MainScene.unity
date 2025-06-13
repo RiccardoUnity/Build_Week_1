@@ -3056,10 +3056,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpawnRanger
       objectReference: {fileID: 0}
-    - target: {fileID: 122130488342923123, guid: 9fc9d69410124154f9c28b81af6aff92, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5764412799343093949, guid: 9fc9d69410124154f9c28b81af6aff92, type: 3}
       propertyPath: m_LocalPosition.x
       value: -41.3
@@ -3100,10 +3096,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6167784562150395390, guid: 9fc9d69410124154f9c28b81af6aff92, type: 3}
-      propertyPath: enemyPrefab
-      value: 
-      objectReference: {fileID: 5836448884040128083, guid: a57a37a2d344c7c49a8dff3114414716, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3120,10 +3112,6 @@ PrefabInstance:
     - target: {fileID: 122130488342923123, guid: 9fc9d69410124154f9c28b81af6aff92, type: 3}
       propertyPath: m_Name
       value: EnemySpawnTaz
-      objectReference: {fileID: 0}
-    - target: {fileID: 122130488342923123, guid: 9fc9d69410124154f9c28b81af6aff92, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5764412799343093949, guid: 9fc9d69410124154f9c28b81af6aff92, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3165,10 +3153,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6167784562150395390, guid: 9fc9d69410124154f9c28b81af6aff92, type: 3}
-      propertyPath: enemyPrefab
-      value: 
-      objectReference: {fileID: 7567848970552404437, guid: 4d395af35b2fe5a4480d4b7ea4c7899f, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3246,10 +3230,6 @@ PrefabInstance:
     - target: {fileID: 122130488342923123, guid: 9fc9d69410124154f9c28b81af6aff92, type: 3}
       propertyPath: m_Name
       value: EnemySpawnKami
-      objectReference: {fileID: 0}
-    - target: {fileID: 122130488342923123, guid: 9fc9d69410124154f9c28b81af6aff92, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5764412799343093949, guid: 9fc9d69410124154f9c28b81af6aff92, type: 3}
       propertyPath: m_LocalPosition.x
