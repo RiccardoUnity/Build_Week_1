@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-
+using GSU = GameUtility.GameStaticUtility;
 public class EnemyInstantiate : MonoBehaviour
 {
     [SerializeField] float minDis = 3f;
@@ -40,10 +40,7 @@ public class EnemyInstantiate : MonoBehaviour
         while (i < enemyNumbers && maxTry < 100)
         {
             // Genera una posizione casuale per lo spawn degli enemy
-            Vector2 spawnPosition = new Vector2(
-                Random.Range(-enemySpawnRange, enemySpawnRange),
-                Random.Range(-enemySpawnRange, enemySpawnRange)
-            );
+            Vector2 spawnPosition = new Vector3(Random.Range(-enemySpawnRange, enemySpawnRange),Random.Range(-enemySpawnRange, enemySpawnRange), 0f) + transform.position;
             // Controlla se la posizione è accettabile per lo spawn
             if (AcceptablePosition(spawnPosition))
             {
@@ -82,8 +79,8 @@ public class EnemyInstantiate : MonoBehaviour
             if (_playerController != null)
             { // Controlla se il PlayerController è presente nella scena
 
-                float playerDistance = Vector2.Distance(spawnPosition, FindAnyObjectByType<PlayerController>().transform.position); // Calcola la distanza tra la posizione di spawn e la posizione del giocatore
-                if (distance < minDis || playerDistance < minPlayerDis)//Confronta le distanze
+                float playerDistance = Vector2.Distance(spawnPosition, GSU.Player.transform.position); // Calcola la distanza tra la posizione di spawn e la posizione del giocatore
+                if (distance < minDis && playerDistance < minPlayerDis)//Confronta le distanze
                 {
                     return false;
                 }

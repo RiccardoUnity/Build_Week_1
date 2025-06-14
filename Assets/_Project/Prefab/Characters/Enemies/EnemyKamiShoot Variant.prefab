@@ -57,8 +57,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2107654654407706590, guid: 2af1bbb736eca784191438a4e2ba50f4, type: 3}
-      insertIndex: 5
+      insertIndex: -1
       addedObject: {fileID: 8991091980706170784}
+    - targetCorrespondingSourceObject: {fileID: 2107654654407706590, guid: 2af1bbb736eca784191438a4e2ba50f4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -8242129720456396508}
   m_SourcePrefab: {fileID: 100100000, guid: 2af1bbb736eca784191438a4e2ba50f4, type: 3}
 --- !u!1 &1068352971440991296 stripped
 GameObject:
@@ -77,6 +80,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11434099d4ec1574ab86e96892862a18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 2
-  _dmg: 0
-  FollowRange: 10
+  baseSpeed: 2
+  damage: 1
+  followRange: 10
+--- !u!114 &-8242129720456396508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068352971440991296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f65e0399bcd85c145bdaea7bfdb78172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 5
+  fireRange: 10
+  BulletPrefab: {fileID: 1086578407649063996, guid: 574f7986e5204c34db116569e9a7feb5, type: 3}

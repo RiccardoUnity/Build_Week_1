@@ -30,7 +30,7 @@ public class WeaponNearestTarget : Weapon
         GameObject enemy = FindNearestTarget();
         if (enemy == null) return;
 
-        if (Time.time - _lastShotTime > fireRate)
+        if (CanShootTarget() && Time.time - _lastShotTime > fireRate)
         {
             _lastShotTime = Time.time;
             Vector2 force = (enemy.transform.position - transform.position).normalized;
@@ -38,19 +38,6 @@ public class WeaponNearestTarget : Weapon
             Bullet b = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
             b.ShootBullet(tag, force, Damage); // puoi usare _damage se lo esponi come `protected`
         }
-    }
-
-    private string GetTargetTag()
-    {
-        if (CompareTag(GSU.PlayerTag))
-        {
-            return GSU.EnemyTag;
-        }
-        else if (CompareTag(GSU.EnemyTag))
-        {
-            return GSU.PlayerTag;
-        }
-        return null;
     }
 
     void Update()
